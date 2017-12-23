@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class IterativePreOrderTraversalOfBinaryTree {
 
+
     public static void main(String[] args) {
         TreeNode treeNode = new TreeNode(5);
         treeNode.left = new TreeNode(4);
@@ -13,11 +14,23 @@ public class IterativePreOrderTraversalOfBinaryTree {
         treeNode.right.left = new TreeNode(7);
         treeNode.right.right = new TreeNode(9);
         ArrayList<Integer> preorderItr = preorderItr(treeNode);
+        System.out.println(preorderItr);
     }
 
     public static ArrayList<Integer> preorderItr(TreeNode root) {
+        ArrayList<Integer> lst = new ArrayList<>();
+        preOrder(root, lst);
+        return lst;
+    }
 
-        return null;
+    private static void preOrder(TreeNode node, ArrayList<Integer> lst) {
+        if (node==null) {
+            return;
+        } else {
+            lst.add(node.data);
+            preOrder(node.left, lst);
+            preOrder(node.right, lst);
+        }
     }
 
     private static class TreeNode {
