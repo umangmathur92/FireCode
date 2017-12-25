@@ -24,9 +24,7 @@ public class IterativePreOrderTraversalOfBinaryTree {
     }
 
     private static void preOrder(TreeNode node, ArrayList<Integer> lst) {
-        if (node==null) {
-            return;
-        } else {
+        if(node != null){
             lst.add(node.data);
             preOrder(node.left, lst);
             preOrder(node.right, lst);
